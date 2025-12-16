@@ -8,6 +8,7 @@ import { initialState } from "./states/initialState";
 import { useReducer } from "react";
 import { reducer } from "./states/reducer";
 
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   console.log(state)

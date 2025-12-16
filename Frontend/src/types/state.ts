@@ -1,3 +1,6 @@
+
+// StateTypes for Reducer : 
+
 export interface StateType {
     movies: string[],
     
@@ -38,6 +41,14 @@ export interface SetCategoryAction {
 }
 
 
+
+
+// StateTypes for Formik (Admin Form) : 
+
+export interface FormikSubmitType {
+    value: string,
+    selection: "actor" | "category" | "series" | "studio"
+  }
 
 
 

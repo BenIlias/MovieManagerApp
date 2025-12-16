@@ -1,4 +1,5 @@
-import type { StateType } from "../types/state";
+import type { FormikSubmitType, StateType } from "../types/state";
+// InitialStates for Reducer : 
 
 export const initialState : StateType= {
     actors: [
@@ -34,4 +35,13 @@ export const initialState : StateType= {
     movieSeries: ["Dark Knight Triology", "Harry Potter", "Star Wars"],
     movieSeriesId: null,
     movieSeriesNumber: null,
-}
+};
+
+
+
+// InitialStates for Formik Values (Admin Form) : 
+
+export const initialSubmitFormik: FormikSubmitType = {
+    value: '',
+    selection: 'actor'
+  }
