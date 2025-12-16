@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import MovieSection from "./MovieSection";
+import stateContext from "../types/stateContext";
 
 const CategorySelector = () => {
+
   return (
     <MovieSection title="Categories">
       <div className="gap-1 grid grid-cols-3 h-96 overflow-y-scroll">

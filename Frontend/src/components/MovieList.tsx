@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import MovieSection from "./MovieSection";
+import stateContext from "../types/stateContext";
 
 const MovieList = () => {
+
   return (
     <MovieSection title="Movie List">
       <select className="h-64 w-full" size={10}>
-        <option>Movie 1</option>
+        <option>Movie 2</option>
         <option>Movie 2</option>
         <option>Movie 3</option>
         <option>Movie 4</option>
