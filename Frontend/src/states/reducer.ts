@@ -9,6 +9,12 @@ export const reducer = (state: StateType, action: ActionType) => {
         case Actions.setCategory:
             return {...state, categories: [...state['categories'], action.payload]}   
         
+        case Actions.setMovieSeries:
+            return {...state, movieSeries: [...state['movieSeries'], action.payload]}  
+        
+        case Actions.setMovieStudio:
+            return {...state, movieStudios: [...state['movieStudios'], action.payload]}  
+        
         default:
             return state
 

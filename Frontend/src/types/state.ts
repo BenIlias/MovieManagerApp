@@ -25,10 +25,13 @@ export interface StateType {
 
 export enum Actions {
     setActor = "setActor",
-    setCategory = "setCategory"
+    setCategory = "setCategory",
+    setMovieSeries = "setMovieSeries",
+    setMovieStudio = "setMovieStudio"
+
 }
 
-export type ActionType = SetActorAction | SetCategoryAction
+export type ActionType = SetActorAction | SetCategoryAction | SetMovieSeriesAction | SetMovieStudioAction
 
 export interface SetActorAction {
     type: "setActor",
@@ -40,6 +43,15 @@ export interface SetCategoryAction {
     payload: string
 }
 
+export interface SetMovieSeriesAction {
+    type: "setMovieSeries",
+    payload: string
+}
+
+export interface SetMovieStudioAction {
+    type: "setMovieStudio",
+    payload: string
+}
 
 
 

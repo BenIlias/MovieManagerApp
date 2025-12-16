@@ -2,13 +2,32 @@ import { useContext } from "react";
 import stateContext from "../types/stateContext";
 import { Field, Formik, type FormikHelpers } from "formik";
 import { initialSubmitFormik } from "../states/initialState";
-import type { FormikSubmitType } from "../types/state";
+import { Actions, type FormikSubmitType } from "../types/state";
 
 const AdminPage = () => {
   const { state, dispatch } = useContext(stateContext)
 
   const onSubmit = (values: FormikSubmitType, helpers: FormikHelpers<FormikSubmitType>) => {
-    console.log(values)
+    switch(values.selection){
+      case "actor":
+        dispatch({type: Actions.setActor, payload: values.value})
+        break
+      
+      case "category":
+        dispatch({type: Actions.setCategory, payload: values.value})
+        break
+
+      case "series":
+        dispatch({type: Actions.setMovieSeries, payload: values.value})
+        break
+
+      case "studio":
+        dispatch({type: Actions.setMovieStudio, payload: values.value})
+        break
+      
+      default:
+        break
+    }
   } 
 
   return (
