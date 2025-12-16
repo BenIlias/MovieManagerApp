@@ -1,7 +1,20 @@
+import { useContext } from "react";
 import MovieDataFormRow from "./MovieDataFormRow";
 import MovieSection from "./MovieSection";
+import stateContext from "../types/stateContext";
 
 const MovieData = () => {
+  const {state, dispatch} = useContext(stateContext)
+  
+  const studioElem = state.movieStudios.map((ele, index) => {
+    return <option key={index}>{ele}</option>
+  })
+
+  const seriesElem = state.movieSeries.map((ele, index) => {
+    return <option key={index}>{ele}</option>
+  })
+
+  
   return (
     <MovieSection title="Movie Data">
       <div className="h-64">
@@ -11,24 +24,17 @@ const MovieData = () => {
               <MovieDataFormRow title="Name">
                 <input className="movie-data-input" type="text" />
               </MovieDataFormRow>
-
               <MovieDataFormRow title="Studio">
                 <select className="py-1 rounded-lg w-full">
-                  <option>Studio 1</option>
-                  <option>Studio 2</option>
-                  <option>Studio 3</option>
-                  <option>Studio 4</option>
-                  <option>Studio 5</option>
+                 <option>None</option>
+                 {studioElem}
                 </select>
               </MovieDataFormRow>
 
               <MovieDataFormRow title="Series">
                 <select className="py-1 rounded-lg w-full">
-                  <option>Series 1</option>
-                  <option>Series 2</option>
-                  <option>Series 3</option>
-                  <option>Series 4</option>
-                  <option>Series 5</option>
+                  <option>None</option>
+                  {seriesElem}
                 </select>
               </MovieDataFormRow>
 
