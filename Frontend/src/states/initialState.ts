@@ -1,7 +1,7 @@
-import type { FormikSubmitType, StateType } from "../types/state";
+import type { FormikMainFormTypes, FormikAdminFormTypes, StateType } from "../types/state";
 // InitialStates for Reducer : 
 
-export const initialState : StateType= {
+export const initialState: StateType = {
     actors: [
         "Carrie Fisher",
         "Christian Bale",
@@ -14,7 +14,7 @@ export const initialState : StateType= {
         "Rupert Grint",
         "Sigorney Weaver",
     ],
-   
+
 
     categories: ["animated", "action", "comic", "fantasy", "sci-fi"],
 
@@ -40,7 +40,18 @@ export const initialState : StateType= {
 
 // InitialStates for Formik Values (Admin Form) : 
 
-export const initialSubmitFormik: FormikSubmitType = {
+export const initialSubmitFormik: FormikAdminFormTypes = {
     value: '',
     selection: 'actor'
-  }
+}
+
+export const initialMainFormValues: FormikMainFormTypes = {
+    movieId: "",                 // if text input (or remove if not used)
+    movieName: "",
+    movieStudioId: "",
+    movieSeriesId: "",
+    movieSeriesNumber: "",
+    movieActorAvailableId: "",
+    movieActorSelectedId: "",
+    movieCategories: []
+}

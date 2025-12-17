@@ -1,25 +1,15 @@
 
 // StateTypes for Reducer : 
 
+import type { FormikProps } from "formik"
+
 export interface StateType {
     movies: string[],
-    
     actors: string[],
-    selectedActors: string[] | null,
-    
     categories: string[],
-    selectedCategories: string[] | null,
-
-    
-    selectedMovieId: number | null,
-
-    movieName: string | null,
     movieStudios: string[],
-    movieStudioId: number | null,
-
     movieSeries: string[],
-    movieSeriesId: number | null,
-    movieSeriesNumber: number | null,
+
 };
 
 
@@ -57,10 +47,29 @@ export interface SetMovieStudioAction {
 
 // StateTypes for Formik (Admin Form) : 
 
-export interface FormikSubmitType {
+export interface FormikAdminFormTypes {
     value: string,
     selection: "actor" | "category" | "series" | "studio"
-  }
+}
 
 
+
+// StateTypes for Formik (Main Form) : 
+
+export interface FormikMainFormTypes {
+    movieId: string
+    movieName: string
+    movieStudioId: string
+    movieSeriesId: string
+    movieSeriesNumber: string
+    movieActorAvailableId: string
+    movieActorSelectedId: string
+    movieCategories: string[]
+
+}
+
+
+export interface MovieSectionProps {
+    formik: FormikProps<FormikMainFormTypes>
+}
 
