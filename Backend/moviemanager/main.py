@@ -1,11 +1,12 @@
 from fastapi import FastAPI, HTTPException, status, Depends
+from typing import List
 from .database import engine, get_db
 from sqlalchemy.orm import Session
 from .models import Base
 from .config import get_config 
 from .util import get_files, migrate_file
 from os.path import splitext
-from . import crud
+from . import crud, schemas
 
 Base.metadata.create_all(bind=engine)
 app = FastAPI()
@@ -14,7 +15,7 @@ app = FastAPI()
 config = get_config()
 
 
-@app.get('/import_movies')
+@app.get('/import_movies', response_model=List[schemas.Movie])
 def import_movies(db: Session = Depends(get_db)):
     try:
         movies = []
@@ -29,12 +30,7 @@ def import_movies(db: Session = Depends(get_db)):
     except Exception:
         raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, 
                             detail="Server configuration error: missing path")
-        
-    return {
-        "imported": movies,
-        "count": len(movies),
-        "message": "Movies imported successfully"
-    }
-
+    
+    return movies
 
 
