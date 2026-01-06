@@ -1,6 +1,6 @@
 import os
 from os.path import splitext
-from . import models
+from .models import models
 from .config import get_config
 
 config = get_config()
